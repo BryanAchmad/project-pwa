@@ -11,6 +11,8 @@ import BiodataRoute from "./routes/biodata-alumni.route.js";
 import AkademikRoute from "./routes/akademik-alumni.route.js";
 import PekerjaanRoute from "./routes/pekerjaan-alumni.route.js";
 import PrestasiRoute from "./routes/prestasi-alumni.route.js";
+import PenggunaTracerRoute from "./routes/admin/pengguna-tracer.route.js";
+import VerifikasiAlumniRoute from "./routes/admin/verifikasi-alumni.route.js";
 
 const app = express();
 
@@ -48,6 +50,10 @@ app.use(BiodataRoute)
 app.use(AkademikRoute)
 app.use(PekerjaanRoute)
 app.use(PrestasiRoute)
+
+//admin
+app.use(PenggunaTracerRoute)
+app.use(VerifikasiAlumniRoute)
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`Server running on PORT ${process.env.PORT}`)

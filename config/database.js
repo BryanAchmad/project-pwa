@@ -5,10 +5,10 @@ import fs from 'fs'
 // const fields = new URL(uri);
 
 // Set up Sequelize with SSL options
-const db = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT,
+const db = new Sequelize("pwa-project", "root", "", {
+    host: "localhost",
+    port: 3306,
+    dialect: 'mysql',
     // dialectOptions: {
     //     ssl: {
     //         ca: fs.readFileSync('ca.pem') // Load ca.pem file

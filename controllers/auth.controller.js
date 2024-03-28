@@ -26,7 +26,11 @@ export const login = async (req, res) => {
 
 export const me = async (req, res) => {
     if(!req.session.userId) {
-        return res.status(400).json({message: "You dont already logged in"});
+        return res.status(400).json({
+            status: false,
+            message: "You dont already logged in",
+            data: []
+        });
     }
 
     const user = await User.findOne({
@@ -36,9 +40,17 @@ export const me = async (req, res) => {
         }
     })
 
-    if(!user) return res.status(404).json({message: "User not found"});
+    if(!user) return res.status(404).json({
+        status: false, 
+        message: "User not found",
+        data: []
+    });
 
-    res.status(200).json(user);
+    res.status(200).json({
+        status: true,
+        message: '',
+        data: user
+    });
 };
 
 export const logout = async (req, res) => {
